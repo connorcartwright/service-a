@@ -3,6 +3,9 @@ version: 2.1
 # orbs:
 #   aws-ecr: circleci/aws-ecr@x.y.z
 #   aws-ecs: circleci/aws-ecs@0x.y.z
+#   helm: circleci/helm@1.2.0
+#   can we use Helm verify?
+#   https://helm.sh/docs/helm/helm_verify/
 
 jobs:
   say-hello:
