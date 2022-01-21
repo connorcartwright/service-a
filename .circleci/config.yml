@@ -2,9 +2,9 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-orbs:
-  aws-ecr: circleci/aws-ecr@x.y.z
-  aws-ecs: circleci/aws-ecs@0x.y.z
+# orbs:
+#   aws-ecr: circleci/aws-ecr@x.y.z
+#   aws-ecs: circleci/aws-ecs@0x.y.z
 
 jobs:
   say-hello:
