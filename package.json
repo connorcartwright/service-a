@@ -1,0 +1,22 @@
+{
+  "name": "service-a",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/coingecko-api": "^1.0.10",
+    "@types/luxon": "^2.0.9",
+    "coingecko-api": "^1.0.10",
+    "luxon": "^2.3.0",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "shx": "^0.3.3",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "prepack": "yarn build",
+    "start": "node dist/index.js"
+  }
+}
