@@ -1,0 +1,37 @@
+version: 2.1
+
+# orbs:
+#   aws-ecr: circleci/aws-ecr@x.y.z
+#   aws-ecs: circleci/aws-ecs@0x.y.z
+#   helm: circleci/helm@1.2.0
+#   can we use Helm verify?
+#   https://helm.sh/docs/helm/helm_verify/
+
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/node:17.4.0
+    steps:
+      - checkout
+      - run: node --version
+      - run: yarn
+      - run: yarn build
+      # - run: yarn test
+      # - run: eslint
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
+
+  # build-and-deploy:
+  #   jobs:
+  #     - aws-ecr/build-and-push-image:
+  #         repo: "${AWS_RESOURCE_NAME_PREFIX}"
+  #         tag: "${CIRCLE_SHA1}"
+  #     - aws-ecs/deploy-service-update:
+  #         requires:
+  #           - aws-ecr/build-and-push-image # only run this job once aws-ecr/build-and-push-image has completed
+  #         family: "${AWS_RESOURCE_NAME_PREFIX}-service"
+  #         cluster-name: "${AWS_RESOURCE_NAME_PREFIX}-cluster"
+  #         container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}"

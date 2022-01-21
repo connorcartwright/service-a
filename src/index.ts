@@ -1,6 +1,6 @@
 import CoinGecko from 'coingecko-api';
- 
 const CoinGeckoClient = new CoinGecko();
+const interval = 60000
  
 async function getBitcoinValue() {
   const response = await CoinGeckoClient.simple.price({
@@ -19,4 +19,4 @@ async function getBitcoinValue() {
 }
 
 getBitcoinValue() // so we immediately print the value
-setInterval(getBitcoinValue, 5000)
+setInterval(getBitcoinValue, interval)
